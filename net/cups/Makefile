@@ -13,10 +13,7 @@ PKG_RELEASE:=4
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-source.tar.bz2
 PKG_SOURCE_URL:= \
-	http://ftp.rz.tu-bs.de/pub/mirror/ftp.easysw.com/ftp/pub/cups/$(PKG_VERSION) \
-	ftp://ftp.easysw.com/pub/cups/$(PKG_VERSION) \
-	ftp://ftp3.easysw.com/pub/cups/$(PKG_VERSION) \
-	http://www.cups.org/software/$(PKG_VERSION)
+	http://github.com/apple/cups/releases/download/release-$(PKG_VERSION)
 PKG_MD5SUM:=946a2d8ad1aec6beced312fce18543da
 
 TARGET_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib
