@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ghostscript
-PKG_VERSION:=10.0.0
-PKG_VERSION_LIBDIR:=10.00.0
-PKG_RELEASE:=6
+PKG_VERSION:=10.01.0
+PKG_VERSION_LIBDIR:=10.01.0
+PKG_RELEASE:=7
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs1000/$(PKG-SOURCE)
-PKG_MD5SUM:=4a054b9147170d3810a12e9d60a24727
+PKG_SOURCE_URL:=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10010/$(PKG-SOURCE)
+PKG_MD5SUM:=d7ac0a7fe11ca6682bf40d3b9da81990
 
 PKG_BUILD_DEPENDS:=ghostscript/host
 PKG_INSTALL:=1
