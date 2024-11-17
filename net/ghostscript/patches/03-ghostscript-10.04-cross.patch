@@ -1,15 +1,15 @@
-diff -Naru ghostscript-9.52_orig/Makefile.in ghostscript-9.52/Makefile.in
---- ghostscript-9.52_orig/Makefile.in	2020-03-19 17:21:42.000000000 +0900
-+++ ghostscript-9.52/Makefile.in	2020-03-20 10:27:39.836195138 +0900
-@@ -788,3 +788,5 @@
+diff -Naru ghostscript-10.04.0_orig/Makefile.in ghostscript-10.04.0/Makefile.in
+--- ghostscript-10.04.0_orig/Makefile.in	2024-09-18 16:34:15.000000000 +0900
++++ ghostscript-10.04.0/Makefile.in	2024-11-17 09:16:12.943493450 +0900
+@@ -819,3 +819,5 @@
  
  check : default
  	$(NO_OP)
 +
 +include $(GLSRCDIR)/cross.mak
-diff -Naru ghostscript-9.52_orig/aarch64-arch.h ghostscript-9.52/aarch64-arch.h
---- ghostscript-9.52_orig/aarch64-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/aarch64-arch.h	2020-03-20 10:23:32.926688588 +0900
+diff -Naru ghostscript-10.04.0_orig/aarch64-arch.h ghostscript-10.04.0/aarch64-arch.h
+--- ghostscript-10.04.0_orig/aarch64-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/aarch64-arch.h	2024-11-17 09:16:12.943493450 +0900
 @@ -0,0 +1,44 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
@@ -55,10 +55,10 @@ diff -Naru ghostscript-9.52_orig/aarch64-arch.h ghostscript-9.52/aarch64-arch.h
 +#define ARCH_FLOATS_ARE_IEEE 1
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
-diff -Naru ghostscript-9.52_orig/arm-arch.h ghostscript-9.52/arm-arch.h
---- ghostscript-9.52_orig/arm-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/arm-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/arm-arch.h ghostscript-10.04.0/arm-arch.h
+--- ghostscript-10.04.0_orig/arm-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/arm-arch.h	2024-11-17 09:19:42.782122054 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -91,6 +91,7 @@ diff -Naru ghostscript-9.52_orig/arm-arch.h ghostscript-9.52/arm-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -100,10 +101,10 @@ diff -Naru ghostscript-9.52_orig/arm-arch.h ghostscript-9.52/arm-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/armeb-arch.h ghostscript-9.52/armeb-arch.h
---- ghostscript-9.52_orig/armeb-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/armeb-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/armeb-arch.h ghostscript-10.04.0/armeb-arch.h
+--- ghostscript-10.04.0_orig/armeb-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/armeb-arch.h	2024-11-17 09:19:50.050073559 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -136,6 +137,7 @@ diff -Naru ghostscript-9.52_orig/armeb-arch.h ghostscript-9.52/armeb-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -145,10 +147,10 @@ diff -Naru ghostscript-9.52_orig/armeb-arch.h ghostscript-9.52/armeb-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/avr32-arch.h ghostscript-9.52/avr32-arch.h
---- ghostscript-9.52_orig/avr32-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/avr32-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/avr32-arch.h ghostscript-10.04.0/avr32-arch.h
+--- ghostscript-10.04.0_orig/avr32-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/avr32-arch.h	2024-11-17 09:19:56.642029564 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -181,6 +183,7 @@ diff -Naru ghostscript-9.52_orig/avr32-arch.h ghostscript-9.52/avr32-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -190,26 +193,26 @@ diff -Naru ghostscript-9.52_orig/avr32-arch.h ghostscript-9.52/avr32-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/base/cross.mak ghostscript-9.52/base/cross.mak
---- ghostscript-9.52_orig/base/cross.mak	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/base/cross.mak	2020-03-20 10:23:32.926688588 +0900
+diff -Naru ghostscript-10.04.0_orig/base/cross.mak ghostscript-10.04.0/base/cross.mak
+--- ghostscript-10.04.0_orig/base/cross.mak	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/base/cross.mak	2024-11-17 09:16:12.943493450 +0900
 @@ -0,0 +1,5 @@
 +cross_prepare:
 +	mkdir -p $(GLGEN)
 +	cp -f $(ARCH)-arch.h $(GLGEN)/arch.h
 +	touch $(GLGEN)/arch.h
 +
-diff -Naru ghostscript-9.52_orig/base/unix-gcc.mak ghostscript-9.52/base/unix-gcc.mak
---- ghostscript-9.52_orig/base/unix-gcc.mak	2020-03-19 17:21:42.000000000 +0900
-+++ ghostscript-9.52/base/unix-gcc.mak	2020-03-20 10:27:33.120262961 +0900
-@@ -703,3 +703,4 @@
+diff -Naru ghostscript-10.04.0_orig/base/unix-gcc.mak ghostscript-10.04.0/base/unix-gcc.mak
+--- ghostscript-10.04.0_orig/base/unix-gcc.mak	2024-09-18 16:34:15.000000000 +0900
++++ ghostscript-10.04.0/base/unix-gcc.mak	2024-11-17 09:16:12.947493423 +0900
+@@ -697,3 +697,4 @@
  
  check : default
  	$(NO_OP)
 +
-diff -Naru ghostscript-9.52_orig/base/unixhead.mak ghostscript-9.52/base/unixhead.mak
---- ghostscript-9.52_orig/base/unixhead.mak	2020-03-19 17:21:42.000000000 +0900
-+++ ghostscript-9.52/base/unixhead.mak	2020-03-20 10:23:32.926688588 +0900
+diff -Naru ghostscript-10.04.0_orig/base/unixhead.mak ghostscript-10.04.0/base/unixhead.mak
+--- ghostscript-10.04.0_orig/base/unixhead.mak	2024-09-18 16:34:15.000000000 +0900
++++ ghostscript-10.04.0/base/unixhead.mak	2024-11-17 09:16:12.947493423 +0900
 @@ -53,7 +53,7 @@
  
  # Define generic commands.
@@ -219,10 +222,10 @@ diff -Naru ghostscript-9.52_orig/base/unixhead.mak ghostscript-9.52/base/unixhea
  RM_=rm -f
  RMN_=rm -f
  
-diff -Naru ghostscript-9.52_orig/i386-arch.h ghostscript-9.52/i386-arch.h
---- ghostscript-9.52_orig/i386-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/i386-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/i386-arch.h ghostscript-10.04.0/i386-arch.h
+--- ghostscript-10.04.0_orig/i386-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/i386-arch.h	2024-11-17 09:20:03.197985817 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -255,6 +258,7 @@ diff -Naru ghostscript-9.52_orig/i386-arch.h ghostscript-9.52/i386-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -264,10 +268,10 @@ diff -Naru ghostscript-9.52_orig/i386-arch.h ghostscript-9.52/i386-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/m68k-arch.h ghostscript-9.52/m68k-arch.h
---- ghostscript-9.52_orig/m68k-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/m68k-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/m68k-arch.h ghostscript-10.04.0/m68k-arch.h
+--- ghostscript-10.04.0_orig/m68k-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/m68k-arch.h	2024-11-17 09:20:09.841941487 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -300,6 +304,7 @@ diff -Naru ghostscript-9.52_orig/m68k-arch.h ghostscript-9.52/m68k-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -309,10 +314,10 @@ diff -Naru ghostscript-9.52_orig/m68k-arch.h ghostscript-9.52/m68k-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/mips-arch.h ghostscript-9.52/mips-arch.h
---- ghostscript-9.52_orig/mips-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/mips-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/mips-arch.h ghostscript-10.04.0/mips-arch.h
+--- ghostscript-10.04.0_orig/mips-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/mips-arch.h	2024-11-17 09:20:18.253885355 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -345,6 +350,7 @@ diff -Naru ghostscript-9.52_orig/mips-arch.h ghostscript-9.52/mips-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -354,10 +360,10 @@ diff -Naru ghostscript-9.52_orig/mips-arch.h ghostscript-9.52/mips-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/mips64-arch.h ghostscript-9.52/mips64-arch.h
---- ghostscript-9.52_orig/mips64-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/mips64-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/mips64-arch.h ghostscript-10.04.0/mips64-arch.h
+--- ghostscript-10.04.0_orig/mips64-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/mips64-arch.h	2024-11-17 09:20:23.129852809 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -390,6 +396,7 @@ diff -Naru ghostscript-9.52_orig/mips64-arch.h ghostscript-9.52/mips64-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -399,10 +406,10 @@ diff -Naru ghostscript-9.52_orig/mips64-arch.h ghostscript-9.52/mips64-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/mips64el-arch.h ghostscript-9.52/mips64el-arch.h
---- ghostscript-9.52_orig/mips64el-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/mips64el-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/mips64el-arch.h ghostscript-10.04.0/mips64el-arch.h
+--- ghostscript-10.04.0_orig/mips64el-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/mips64el-arch.h	2024-11-17 09:20:28.965813856 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -435,6 +442,7 @@ diff -Naru ghostscript-9.52_orig/mips64el-arch.h ghostscript-9.52/mips64el-arch.
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -444,10 +452,10 @@ diff -Naru ghostscript-9.52_orig/mips64el-arch.h ghostscript-9.52/mips64el-arch.
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/mipsel-arch.h ghostscript-9.52/mipsel-arch.h
---- ghostscript-9.52_orig/mipsel-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/mipsel-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/mipsel-arch.h ghostscript-10.04.0/mipsel-arch.h
+--- ghostscript-10.04.0_orig/mipsel-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/mipsel-arch.h	2024-11-17 09:20:35.065773142 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -480,6 +488,7 @@ diff -Naru ghostscript-9.52_orig/mipsel-arch.h ghostscript-9.52/mipsel-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -489,10 +498,10 @@ diff -Naru ghostscript-9.52_orig/mipsel-arch.h ghostscript-9.52/mipsel-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/nios2-arch.h ghostscript-9.52/nios2-arch.h
---- ghostscript-9.52_orig/nios2-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/nios2-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/nios2-arch.h ghostscript-10.04.0/nios2-arch.h
+--- ghostscript-10.04.0_orig/nios2-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/nios2-arch.h	2024-11-17 09:20:39.157745830 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -525,6 +534,7 @@ diff -Naru ghostscript-9.52_orig/nios2-arch.h ghostscript-9.52/nios2-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -534,10 +544,10 @@ diff -Naru ghostscript-9.52_orig/nios2-arch.h ghostscript-9.52/nios2-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/powerpc-arch.h ghostscript-9.52/powerpc-arch.h
---- ghostscript-9.52_orig/powerpc-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/powerpc-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/powerpc-arch.h ghostscript-10.04.0/powerpc-arch.h
+--- ghostscript-10.04.0_orig/powerpc-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/powerpc-arch.h	2024-11-17 09:20:46.217698702 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -570,6 +580,7 @@ diff -Naru ghostscript-9.52_orig/powerpc-arch.h ghostscript-9.52/powerpc-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -579,10 +590,10 @@ diff -Naru ghostscript-9.52_orig/powerpc-arch.h ghostscript-9.52/powerpc-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/sh-arch.h ghostscript-9.52/sh-arch.h
---- ghostscript-9.52_orig/sh-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/sh-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/sh-arch.h ghostscript-10.04.0/sh-arch.h
+--- ghostscript-10.04.0_orig/sh-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/sh-arch.h	2024-11-17 09:20:50.905667406 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -615,6 +626,7 @@ diff -Naru ghostscript-9.52_orig/sh-arch.h ghostscript-9.52/sh-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -624,10 +636,10 @@ diff -Naru ghostscript-9.52_orig/sh-arch.h ghostscript-9.52/sh-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/sparc-arch.h ghostscript-9.52/sparc-arch.h
---- ghostscript-9.52_orig/sparc-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/sparc-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/sparc-arch.h ghostscript-10.04.0/sparc-arch.h
+--- ghostscript-10.04.0_orig/sparc-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/sparc-arch.h	2024-11-17 09:20:55.613635990 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -660,6 +672,7 @@ diff -Naru ghostscript-9.52_orig/sparc-arch.h ghostscript-9.52/sparc-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -669,10 +682,10 @@ diff -Naru ghostscript-9.52_orig/sparc-arch.h ghostscript-9.52/sparc-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/x86_64-arch.h ghostscript-9.52/x86_64-arch.h
---- ghostscript-9.52_orig/x86_64-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/x86_64-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/x86_64-arch.h ghostscript-10.04.0/x86_64-arch.h
+--- ghostscript-10.04.0_orig/x86_64-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/x86_64-arch.h	2024-11-17 09:20:59.765608284 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -705,6 +718,7 @@ diff -Naru ghostscript-9.52_orig/x86_64-arch.h ghostscript-9.52/x86_64-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
@@ -714,10 +728,10 @@ diff -Naru ghostscript-9.52_orig/x86_64-arch.h ghostscript-9.52/x86_64-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-9.52_orig/xtensa-arch.h ghostscript-9.52/xtensa-arch.h
---- ghostscript-9.52_orig/xtensa-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-9.52/xtensa-arch.h	2020-03-20 10:23:32.926688588 +0900
-@@ -0,0 +1,41 @@
+diff -Naru ghostscript-10.04.0_orig/xtensa-arch.h ghostscript-10.04.0/xtensa-arch.h
+--- ghostscript-10.04.0_orig/xtensa-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.04.0/xtensa-arch.h	2024-11-17 09:21:04.877574168 +0900
+@@ -0,0 +1,42 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -750,6 +764,7 @@ diff -Naru ghostscript-9.52_orig/xtensa-arch.h ghostscript-9.52/xtensa-arch.h
 +#define ARCH_MAX_USHORT ((unsigned short)0xffff + (unsigned short)0)
 +#define ARCH_MAX_UINT ((unsigned int)~0 + (unsigned int)0)
 +#define ARCH_MAX_ULONG ((unsigned long)~0L + (unsigned long)0)
++#define ARCH_MAX_SIZE_T ((size_t)~0L + (size_t)0)
 +
 +   /* ---------------- Miscellaneous ---------------- */
 +
