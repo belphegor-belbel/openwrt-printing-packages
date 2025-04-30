@@ -1,2 +1,2 @@
 #!/bin/sh
-GS_LIB=/usr/share/ghostscript/10.05.0 exec /usr/bin/gs.orig "$@"
+GS_LIB=/usr/share/ghostscript/10.05.1 exec /usr/bin/gs.orig "$@"
