@@ -74,8 +74,9 @@ define Host/Configure
 	--without-libidn)
 endef
 
-# Patches cannot be applied to the host build
+# Only one patch should be applied to the host build
 define Host/Patch
+	$(PATCH) -d $(HOST_BUILD_DIR) -p1 < patches/01-ghostscript-10.05.1-force-gnu99.patch
 endef
 
 # No need to install or patch HOST
