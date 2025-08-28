@@ -1,16 +1,16 @@
-diff -Naru ghostscript-10.04.0_orig/Makefile.in ghostscript-10.04.0/Makefile.in
---- ghostscript-10.04.0_orig/Makefile.in	2024-09-18 16:34:15.000000000 +0900
-+++ ghostscript-10.04.0/Makefile.in	2024-11-17 09:16:12.943493450 +0900
-@@ -819,3 +819,5 @@
+diff -Naru ghostscript-10.06.0rc1_orig/Makefile.in ghostscript-10.06.0rc1/Makefile.in
+--- ghostscript-10.06.0rc1_orig/Makefile.in	2025-08-28 12:40:35.778564325 +0900
++++ ghostscript-10.06.0rc1/Makefile.in	2025-08-28 12:41:32.554343901 +0900
+@@ -835,3 +835,5 @@
  
  check : default
  	$(NO_OP)
 +
 +include $(GLSRCDIR)/cross.mak
-diff -Naru ghostscript-10.04.0_orig/aarch64-arch.h ghostscript-10.04.0/aarch64-arch.h
---- ghostscript-10.04.0_orig/aarch64-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/aarch64-arch.h	2024-11-17 09:16:12.943493450 +0900
-@@ -0,0 +1,44 @@
+diff -Naru ghostscript-10.06.0rc1_orig/aarch64-arch.h ghostscript-10.06.0rc1/aarch64-arch.h
+--- ghostscript-10.06.0rc1_orig/aarch64-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/aarch64-arch.h	2025-08-28 12:43:54.285794150 +0900
+@@ -0,0 +1,45 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -23,6 +23,7 @@ diff -Naru ghostscript-10.04.0_orig/aarch64-arch.h ghostscript-10.04.0/aarch64-a
 +#define ARCH_ALIGN_PTR_MOD 8
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +	 /* ---------------- Scalar sizes ---------------- */
 +
@@ -55,10 +56,10 @@ diff -Naru ghostscript-10.04.0_orig/aarch64-arch.h ghostscript-10.04.0/aarch64-a
 +#define ARCH_FLOATS_ARE_IEEE 1
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
-diff -Naru ghostscript-10.04.0_orig/arm-arch.h ghostscript-10.04.0/arm-arch.h
---- ghostscript-10.04.0_orig/arm-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/arm-arch.h	2024-11-17 09:19:42.782122054 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/arm-arch.h ghostscript-10.06.0rc1/arm-arch.h
+--- ghostscript-10.06.0rc1_orig/arm-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/arm-arch.h	2025-08-28 12:44:16.493708196 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -70,6 +71,7 @@ diff -Naru ghostscript-10.04.0_orig/arm-arch.h ghostscript-10.04.0/arm-arch.h
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -101,10 +103,10 @@ diff -Naru ghostscript-10.04.0_orig/arm-arch.h ghostscript-10.04.0/arm-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/armeb-arch.h ghostscript-10.04.0/armeb-arch.h
---- ghostscript-10.04.0_orig/armeb-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/armeb-arch.h	2024-11-17 09:19:50.050073559 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/armeb-arch.h ghostscript-10.06.0rc1/armeb-arch.h
+--- ghostscript-10.06.0rc1_orig/armeb-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/armeb-arch.h	2025-08-28 12:44:42.877606081 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -116,6 +118,7 @@ diff -Naru ghostscript-10.04.0_orig/armeb-arch.h ghostscript-10.04.0/armeb-arch.
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -147,10 +150,10 @@ diff -Naru ghostscript-10.04.0_orig/armeb-arch.h ghostscript-10.04.0/armeb-arch.
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/avr32-arch.h ghostscript-10.04.0/avr32-arch.h
---- ghostscript-10.04.0_orig/avr32-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/avr32-arch.h	2024-11-17 09:19:56.642029564 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/avr32-arch.h ghostscript-10.06.0rc1/avr32-arch.h
+--- ghostscript-10.06.0rc1_orig/avr32-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/avr32-arch.h	2025-08-28 12:45:03.325526918 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -162,6 +165,7 @@ diff -Naru ghostscript-10.04.0_orig/avr32-arch.h ghostscript-10.04.0/avr32-arch.
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -193,26 +197,26 @@ diff -Naru ghostscript-10.04.0_orig/avr32-arch.h ghostscript-10.04.0/avr32-arch.
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/base/cross.mak ghostscript-10.04.0/base/cross.mak
---- ghostscript-10.04.0_orig/base/cross.mak	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/base/cross.mak	2024-11-17 09:16:12.943493450 +0900
+diff -Naru ghostscript-10.06.0rc1_orig/base/cross.mak ghostscript-10.06.0rc1/base/cross.mak
+--- ghostscript-10.06.0rc1_orig/base/cross.mak	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/base/cross.mak	2025-08-28 12:41:32.554343901 +0900
 @@ -0,0 +1,5 @@
 +cross_prepare:
 +	mkdir -p $(GLGEN)
 +	cp -f $(ARCH)-arch.h $(GLGEN)/arch.h
 +	touch $(GLGEN)/arch.h
 +
-diff -Naru ghostscript-10.04.0_orig/base/unix-gcc.mak ghostscript-10.04.0/base/unix-gcc.mak
---- ghostscript-10.04.0_orig/base/unix-gcc.mak	2024-09-18 16:34:15.000000000 +0900
-+++ ghostscript-10.04.0/base/unix-gcc.mak	2024-11-17 09:16:12.947493423 +0900
-@@ -697,3 +697,4 @@
+diff -Naru ghostscript-10.06.0rc1_orig/base/unix-gcc.mak ghostscript-10.06.0rc1/base/unix-gcc.mak
+--- ghostscript-10.06.0rc1_orig/base/unix-gcc.mak	2025-08-26 18:43:13.000000000 +0900
++++ ghostscript-10.06.0rc1/base/unix-gcc.mak	2025-08-28 12:41:32.554343901 +0900
+@@ -705,3 +705,4 @@
  
  check : default
  	$(NO_OP)
 +
-diff -Naru ghostscript-10.04.0_orig/base/unixhead.mak ghostscript-10.04.0/base/unixhead.mak
---- ghostscript-10.04.0_orig/base/unixhead.mak	2024-09-18 16:34:15.000000000 +0900
-+++ ghostscript-10.04.0/base/unixhead.mak	2024-11-17 09:16:12.947493423 +0900
+diff -Naru ghostscript-10.06.0rc1_orig/base/unixhead.mak ghostscript-10.06.0rc1/base/unixhead.mak
+--- ghostscript-10.06.0rc1_orig/base/unixhead.mak	2025-08-26 18:43:13.000000000 +0900
++++ ghostscript-10.06.0rc1/base/unixhead.mak	2025-08-28 12:41:32.554343901 +0900
 @@ -53,7 +53,7 @@
  
  # Define generic commands.
@@ -222,10 +226,10 @@ diff -Naru ghostscript-10.04.0_orig/base/unixhead.mak ghostscript-10.04.0/base/u
  RM_=rm -f
  RMN_=rm -f
  
-diff -Naru ghostscript-10.04.0_orig/i386-arch.h ghostscript-10.04.0/i386-arch.h
---- ghostscript-10.04.0_orig/i386-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/i386-arch.h	2024-11-17 09:20:03.197985817 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/i386-arch.h ghostscript-10.06.0rc1/i386-arch.h
+--- ghostscript-10.06.0rc1_orig/i386-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/i386-arch.h	2025-08-28 12:45:25.749440114 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -237,6 +241,7 @@ diff -Naru ghostscript-10.04.0_orig/i386-arch.h ghostscript-10.04.0/i386-arch.h
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 4
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -268,10 +273,10 @@ diff -Naru ghostscript-10.04.0_orig/i386-arch.h ghostscript-10.04.0/i386-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/m68k-arch.h ghostscript-10.04.0/m68k-arch.h
---- ghostscript-10.04.0_orig/m68k-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/m68k-arch.h	2024-11-17 09:20:09.841941487 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/m68k-arch.h ghostscript-10.06.0rc1/m68k-arch.h
+--- ghostscript-10.06.0rc1_orig/m68k-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/m68k-arch.h	2025-08-28 12:45:42.117376755 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -283,6 +288,7 @@ diff -Naru ghostscript-10.04.0_orig/m68k-arch.h ghostscript-10.04.0/m68k-arch.h
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -314,10 +320,10 @@ diff -Naru ghostscript-10.04.0_orig/m68k-arch.h ghostscript-10.04.0/m68k-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/mips-arch.h ghostscript-10.04.0/mips-arch.h
---- ghostscript-10.04.0_orig/mips-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/mips-arch.h	2024-11-17 09:20:18.253885355 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/mips-arch.h ghostscript-10.06.0rc1/mips-arch.h
+--- ghostscript-10.06.0rc1_orig/mips-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/mips-arch.h	2025-08-28 12:45:58.189314542 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -329,6 +335,7 @@ diff -Naru ghostscript-10.04.0_orig/mips-arch.h ghostscript-10.04.0/mips-arch.h
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -360,10 +367,10 @@ diff -Naru ghostscript-10.04.0_orig/mips-arch.h ghostscript-10.04.0/mips-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/mips64-arch.h ghostscript-10.04.0/mips64-arch.h
---- ghostscript-10.04.0_orig/mips64-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/mips64-arch.h	2024-11-17 09:20:23.129852809 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/mips64-arch.h ghostscript-10.06.0rc1/mips64-arch.h
+--- ghostscript-10.06.0rc1_orig/mips64-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/mips64-arch.h	2025-08-28 12:46:17.277240683 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -375,6 +382,7 @@ diff -Naru ghostscript-10.04.0_orig/mips64-arch.h ghostscript-10.04.0/mips64-arc
 +#define ARCH_ALIGN_PTR_MOD 8
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -406,10 +414,10 @@ diff -Naru ghostscript-10.04.0_orig/mips64-arch.h ghostscript-10.04.0/mips64-arc
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/mips64el-arch.h ghostscript-10.04.0/mips64el-arch.h
---- ghostscript-10.04.0_orig/mips64el-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/mips64el-arch.h	2024-11-17 09:20:28.965813856 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/mips64el-arch.h ghostscript-10.06.0rc1/mips64el-arch.h
+--- ghostscript-10.06.0rc1_orig/mips64el-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/mips64el-arch.h	2025-08-28 12:46:31.797184483 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -421,6 +429,7 @@ diff -Naru ghostscript-10.04.0_orig/mips64el-arch.h ghostscript-10.04.0/mips64el
 +#define ARCH_ALIGN_PTR_MOD 8
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -452,10 +461,10 @@ diff -Naru ghostscript-10.04.0_orig/mips64el-arch.h ghostscript-10.04.0/mips64el
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/mipsel-arch.h ghostscript-10.04.0/mipsel-arch.h
---- ghostscript-10.04.0_orig/mipsel-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/mipsel-arch.h	2024-11-17 09:20:35.065773142 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/mipsel-arch.h ghostscript-10.06.0rc1/mipsel-arch.h
+--- ghostscript-10.06.0rc1_orig/mipsel-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/mipsel-arch.h	2025-08-28 12:46:50.621111610 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -467,6 +476,7 @@ diff -Naru ghostscript-10.04.0_orig/mipsel-arch.h ghostscript-10.04.0/mipsel-arc
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -498,10 +508,10 @@ diff -Naru ghostscript-10.04.0_orig/mipsel-arch.h ghostscript-10.04.0/mipsel-arc
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/nios2-arch.h ghostscript-10.04.0/nios2-arch.h
---- ghostscript-10.04.0_orig/nios2-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/nios2-arch.h	2024-11-17 09:20:39.157745830 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/nios2-arch.h ghostscript-10.06.0rc1/nios2-arch.h
+--- ghostscript-10.06.0rc1_orig/nios2-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/nios2-arch.h	2025-08-28 12:47:10.237035671 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -513,6 +523,7 @@ diff -Naru ghostscript-10.04.0_orig/nios2-arch.h ghostscript-10.04.0/nios2-arch.
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -544,10 +555,10 @@ diff -Naru ghostscript-10.04.0_orig/nios2-arch.h ghostscript-10.04.0/nios2-arch.
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/powerpc-arch.h ghostscript-10.04.0/powerpc-arch.h
---- ghostscript-10.04.0_orig/powerpc-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/powerpc-arch.h	2024-11-17 09:20:46.217698702 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/powerpc-arch.h ghostscript-10.06.0rc1/powerpc-arch.h
+--- ghostscript-10.06.0rc1_orig/powerpc-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/powerpc-arch.h	2025-08-28 12:47:27.724967963 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -559,6 +570,7 @@ diff -Naru ghostscript-10.04.0_orig/powerpc-arch.h ghostscript-10.04.0/powerpc-a
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -590,10 +602,10 @@ diff -Naru ghostscript-10.04.0_orig/powerpc-arch.h ghostscript-10.04.0/powerpc-a
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/sh-arch.h ghostscript-10.04.0/sh-arch.h
---- ghostscript-10.04.0_orig/sh-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/sh-arch.h	2024-11-17 09:20:50.905667406 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/sh-arch.h ghostscript-10.06.0rc1/sh-arch.h
+--- ghostscript-10.06.0rc1_orig/sh-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/sh-arch.h	2025-08-28 12:47:44.740902120 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -605,6 +617,7 @@ diff -Naru ghostscript-10.04.0_orig/sh-arch.h ghostscript-10.04.0/sh-arch.h
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -636,10 +649,10 @@ diff -Naru ghostscript-10.04.0_orig/sh-arch.h ghostscript-10.04.0/sh-arch.h
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/sparc-arch.h ghostscript-10.04.0/sparc-arch.h
---- ghostscript-10.04.0_orig/sparc-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/sparc-arch.h	2024-11-17 09:20:55.613635990 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/sparc-arch.h ghostscript-10.06.0rc1/sparc-arch.h
+--- ghostscript-10.06.0rc1_orig/sparc-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/sparc-arch.h	2025-08-28 12:47:59.428845277 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -651,6 +664,7 @@ diff -Naru ghostscript-10.04.0_orig/sparc-arch.h ghostscript-10.04.0/sparc-arch.
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -682,10 +696,10 @@ diff -Naru ghostscript-10.04.0_orig/sparc-arch.h ghostscript-10.04.0/sparc-arch.
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/x86_64-arch.h ghostscript-10.04.0/x86_64-arch.h
---- ghostscript-10.04.0_orig/x86_64-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/x86_64-arch.h	2024-11-17 09:20:59.765608284 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/x86_64-arch.h ghostscript-10.06.0rc1/x86_64-arch.h
+--- ghostscript-10.06.0rc1_orig/x86_64-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/x86_64-arch.h	2025-08-28 12:48:17.068776984 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -697,6 +711,7 @@ diff -Naru ghostscript-10.04.0_orig/x86_64-arch.h ghostscript-10.04.0/x86_64-arc
 +#define ARCH_ALIGN_PTR_MOD 8
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
@@ -728,10 +743,10 @@ diff -Naru ghostscript-10.04.0_orig/x86_64-arch.h ghostscript-10.04.0/x86_64-arc
 +#define ARCH_ARITH_RSHIFT 2
 +#define ARCH_DIV_NEG_POS_TRUNCATES 1
 +
-diff -Naru ghostscript-10.04.0_orig/xtensa-arch.h ghostscript-10.04.0/xtensa-arch.h
---- ghostscript-10.04.0_orig/xtensa-arch.h	1970-01-01 09:00:00.000000000 +0900
-+++ ghostscript-10.04.0/xtensa-arch.h	2024-11-17 09:21:04.877574168 +0900
-@@ -0,0 +1,42 @@
+diff -Naru ghostscript-10.06.0rc1_orig/xtensa-arch.h ghostscript-10.06.0rc1/xtensa-arch.h
+--- ghostscript-10.06.0rc1_orig/xtensa-arch.h	1970-01-01 09:00:00.000000000 +0900
++++ ghostscript-10.06.0rc1/xtensa-arch.h	2025-08-28 12:48:30.308725724 +0900
+@@ -0,0 +1,43 @@
 +/* Parameters derived from machine and compiler architecture. */
 +/* This file is generated mechanically by genarch.c. */
 +
@@ -743,6 +758,7 @@ diff -Naru ghostscript-10.04.0_orig/xtensa-arch.h ghostscript-10.04.0/xtensa-arc
 +#define ARCH_ALIGN_PTR_MOD 4
 +#define ARCH_ALIGN_FLOAT_MOD 4
 +#define ARCH_ALIGN_DOUBLE_MOD 8
++#define ARCH_ALIGN_UINT64_T_MOD 8
 +
 +   /* ---------------- Scalar sizes ---------------- */
 +
