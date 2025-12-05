@@ -1,12 +1,10 @@
-diff -Naur cups-1.6.2.bak/man/Makefile cups-1.6.2/man/Makefile
---- cups-1.6.2.bak/man/Makefile	2012-11-26 19:26:01.000000000 +0100
-+++ cups-1.6.2/man/Makefile	2013-05-20 21:50:06.973744106 +0200
-@@ -233,7 +233,7 @@
+diff -Naru cups-2.3.3_orig/man/Makefile cups-2.3.3/man/Makefile
+--- cups-2.3.3_orig/man/Makefile	2020-04-28 03:04:29.000000000 +0900
++++ cups-2.3.3/man/Makefile	2025-12-04 11:54:25.791367104 +0900
+@@ -223,5 +223,5 @@
  	done
  
- mantohtml:	mantohtml.o
--	$(CC) $(ARCHFLAGS) $(LDFLAGS) -o $@ mantohtml.o
+ mantohtml:	mantohtml.o ../cups/$(LIBCUPSSTATIC)
+-	$(LD_CC) $(ARCHFLAGS) $(ALL_LDFLAGS) -o $@ mantohtml.o $(LINKCUPSSTATIC)
 +	gcc -I/usr/include -I../ -L/usr/lib mantohtml.c -o mantohtml
- 
- 
- #
+ 	$(CODE_SIGN) -s "$(CODE_SIGN_IDENTITY)" $@
