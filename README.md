@@ -6,7 +6,7 @@ for OpenWrt.
 Notably it has:
 - Ghostscript 10.06.0
 - Gutenprint 5.2.9
-- Cups 2.3.3
+- Cups 2.4.16
 - OpenPrinting's cups-filters 1.0.37
 - poppler 0.24.1
 - many other packages to make sure the ones above work...

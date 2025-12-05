@@ -1,7 +1,7 @@
-diff -Naru cups-2.3.3_orig/conf/mime.convs.in cups-2.3.3/conf/mime.convs.in
---- cups-2.3.3_orig/conf/mime.convs.in	2020-04-28 03:04:29.000000000 +0900
-+++ cups-2.3.3/conf/mime.convs.in	2025-12-04 12:37:04.337060076 +0900
-@@ -44,6 +44,9 @@
+diff -Naru cups-2.4.16_orig/conf/mime.convs.in cups-2.4.16/conf/mime.convs.in
+--- cups-2.4.16_orig/conf/mime.convs.in	2025-12-04 17:13:12.000000000 +0900
++++ cups-2.4.16/conf/mime.convs.in	2025-12-05 18:15:38.340118941 +0900
+@@ -45,6 +45,9 @@
  application/vnd.cups-raster	image/pwg-raster		100	rastertopwg
  application/vnd.cups-raster	image/urf			100	rastertopwg
  
@@ -11,10 +11,10 @@ diff -Naru cups-2.3.3_orig/conf/mime.convs.in cups-2.3.3/conf/mime.convs.in
  ########################################################################
  #
  # Raw filter...
-diff -Naru cups-2.3.3_orig/conf/mime.types cups-2.3.3/conf/mime.types
---- cups-2.3.3_orig/conf/mime.types	2020-04-28 03:04:29.000000000 +0900
-+++ cups-2.3.3/conf/mime.types	2025-12-04 12:37:04.338060068 +0900
-@@ -108,6 +108,9 @@
+diff -Naru cups-2.4.16_orig/conf/mime.types cups-2.4.16/conf/mime.types
+--- cups-2.4.16_orig/conf/mime.types	2025-12-04 17:13:12.000000000 +0900
++++ cups-2.4.16/conf/mime.types	2025-12-05 18:15:38.340118941 +0900
+@@ -109,6 +109,9 @@
  image/x-bitmap			bmp string(0,BM) + !printable(2,14)
  image/x-icon			ico
  
@@ -24,38 +24,26 @@ diff -Naru cups-2.3.3_orig/conf/mime.types cups-2.3.3/conf/mime.types
  ########################################################################
  #
  # Text files...
-diff -Naru cups-2.3.3_orig/scheduler/conf.c cups-2.3.3/scheduler/conf.c
---- cups-2.3.3_orig/scheduler/conf.c	2020-04-28 03:04:29.000000000 +0900
-+++ cups-2.3.3/scheduler/conf.c	2025-12-04 12:39:46.855698983 +0900
-@@ -745,7 +745,7 @@
-   DefaultShared            = CUPS_DEFAULT_DEFAULT_SHARED;
+diff -Naru cups-2.4.16_orig/scheduler/dirsvc.c cups-2.4.16/scheduler/dirsvc.c
+--- cups-2.4.16_orig/scheduler/dirsvc.c	2025-12-04 17:13:12.000000000 +0900
++++ cups-2.4.16/scheduler/dirsvc.c	2025-12-05 18:19:07.706684557 +0900
+@@ -402,6 +402,12 @@
+   keyvalue[count  ][0] = "pdl";
+   keyvalue[count++][1] = p->pdl ? p->pdl : "application/postscript";
  
- #if defined(HAVE_DNSSD) || defined(HAVE_AVAHI)
--  cupsdSetString(&DNSSDSubTypes, "_cups,_print");
-+  cupsdSetString(&DNSSDSubTypes, "_cups,_print,_universal");
-   cupsdClearString(&DNSSDHostName);
- #endif /* HAVE_DNSSD || HAVE_AVAHI */
- 
-diff -Naru cups-2.3.3_orig/scheduler/dirsvc.c cups-2.3.3/scheduler/dirsvc.c
---- cups-2.3.3_orig/scheduler/dirsvc.c	2020-04-28 03:04:29.000000000 +0900
-+++ cups-2.3.3/scheduler/dirsvc.c	2025-12-04 12:37:04.337060076 +0900
-@@ -440,6 +440,12 @@
-     keyvalue[count  ][0] = "pdl";
-     keyvalue[count++][1] = p->pdl ? p->pdl : "application/postscript";
- 
-+    /* iOS 6 does not accept this printer as AirPrint printer if there is
-+       no URF txt record or "URF=none", "DM3" is the minimum needed found
-+       by try and error */
-+    keyvalue[count  ][0] = "URF";
-+    keyvalue[count++][1] = "DM3";
++  /* iOS 6 does not accept this printer as AirPrint printer if there is
++     no URF txt record or "URF=none", "DM3" is the minimum needed found
++     by try and error */
++  keyvalue[count  ][0] = "URF";
++  keyvalue[count++][1] = "DM3";
 +
-     if (get_auth_info_required(p, air_str, sizeof(air_str)))
-     {
-       keyvalue[count  ][0] = "air";
-diff -Naru cups-2.3.3_orig/scheduler/printers.c cups-2.3.3/scheduler/printers.c
---- cups-2.3.3_orig/scheduler/printers.c	2020-04-28 03:04:29.000000000 +0900
-+++ cups-2.3.3/scheduler/printers.c	2025-12-04 12:37:04.338060068 +0900
-@@ -3731,7 +3731,9 @@
+   if (get_auth_info_required(p, air_str, sizeof(air_str)))
+   {
+     keyvalue[count  ][0] = "air";
+diff -Naru cups-2.4.16_orig/scheduler/printers.c cups-2.4.16/scheduler/printers.c
+--- cups-2.4.16_orig/scheduler/printers.c	2025-12-04 17:13:12.000000000 +0900
++++ cups-2.4.16/scheduler/printers.c	2025-12-05 18:15:38.343118934 +0900
+@@ -3639,7 +3639,9 @@
        }
        else if (!_cups_strcasecmp(type->super, "image"))
        {
