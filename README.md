@@ -4,9 +4,9 @@ This is a [package feed] aiming at providing a complete printing stack
 for OpenWrt.
 
 Notably it has:
-- Ghostscript 9.52
+- Ghostscript 10.06.0
 - Gutenprint 5.2.9
-- Cups 1.6.3
+- Cups 2.3.3
 - OpenPrinting's cups-filters 1.0.37
 - poppler 0.24.1
 - many other packages to make sure the ones above work...
