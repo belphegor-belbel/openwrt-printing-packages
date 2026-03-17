@@ -4,7 +4,7 @@ This is a [package feed] aiming at providing a complete printing stack
 for OpenWrt.
 
 Notably it has:
-- Ghostscript 10.06.0
+- Ghostscript 10.07.0
 - Gutenprint 5.2.9
 - Cups 2.4.16
 - OpenPrinting's cups-filters 1.0.37
