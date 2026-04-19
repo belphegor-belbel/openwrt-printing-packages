@@ -8,13 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cups
-PKG_VERSION:=2.4.16
+PKG_VERSION:=2.4.17
 PKG_RELEASE:=4
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-source.tar.gz
 PKG_SOURCE_URL:= \
 	http://github.com/OpenPrinting/cups/releases/download/v$(PKG_VERSION)
-PKG_MD5SUM:=53cccb5d69eaed7e4c6fe66fa12b11c4
+PKG_MD5SUM:=173b05aaa9f7aac593934ae452aa56b3
 
 TARGET_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
