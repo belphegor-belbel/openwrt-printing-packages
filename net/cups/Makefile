@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cups
 PKG_VERSION:=2.4.17
-PKG_RELEASE:=4
+PKG_RELEASE:=5
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-source.tar.gz
 PKG_SOURCE_URL:= \
@@ -29,7 +29,7 @@ define Package/cups
 $(call Package/cups/Default)
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libcups +libusb-1.0 +libavahi-dbus-support +libavahi-client +libdbus +avahi-autoipd +avahi-dnsconfd +libstdcpp
+  DEPENDS:=+libcups +libusb-1.0 +libavahi-dbus-support +libavahi-client +libdbus +avahi-autoipd +avahi-dnsconfd +libstdcpp +libacl
   TITLE:=Common UNIX Printing System (daemon)
 endef
 
