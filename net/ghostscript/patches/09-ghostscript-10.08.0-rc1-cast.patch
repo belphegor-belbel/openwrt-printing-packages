@@ -1,0 +1,24 @@
+diff -Naru ghostscript-10.08.0rc1_orig/pdf/pdf_shading.c ghostscript-10.08.0rc1/pdf/pdf_shading.c
+--- ghostscript-10.08.0rc1_orig/pdf/pdf_shading.c	2026-08-18 23:13:43.000000000 +0900
++++ ghostscript-10.08.0rc1/pdf/pdf_shading.c	2026-08-19 17:18:07.226043491 +0900
+@@ -52,7 +52,7 @@
+     if (code < 0)
+         return code;
+ 
+-    code = pdfi_dict_get_int(ctx, shading_dict, "ShadingType", &type);
++    code = pdfi_dict_get_int(ctx, shading_dict, "ShadingType", (int64_t *)(&type));
+     if (code < 0)
+         goto build_shading_function_error;
+ 
+diff -Naru ghostscript-10.08.0rc1_orig/psi/zpdfops.c ghostscript-10.08.0rc1/psi/zpdfops.c
+--- ghostscript-10.08.0rc1_orig/psi/zpdfops.c	2026-08-18 23:13:43.000000000 +0900
++++ ghostscript-10.08.0rc1/psi/zpdfops.c	2026-08-19 16:06:14.540726746 +0900
+@@ -1435,7 +1435,7 @@
+     }
+     pdfctx->cache_memory = imemory;
+     /* The size is arbitrary */
+-    code = dict_alloc(imemory->stable_memory, 1, &pdfctx->names_dict);
++    code = dict_alloc((gs_ref_memory_t *)(imemory->stable_memory), 1, &pdfctx->names_dict);
+     if (code < 0)
+         goto error;
+ 

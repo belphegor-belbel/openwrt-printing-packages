@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ghostscript
-PKG_VERSION:=10.07.1
-PKG_VERSION_LIBDIR:=10.07.1
-PKG_RELEASE:=9
+PKG_VERSION:=10.08.0rc1
+PKG_VERSION_LIBDIR:=10.08.0
+PKG_RELEASE:=1
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10071/$(PKG-SOURCE)
-PKG_MD5SUM:=de0ed6fd5dc92556e79160bb5efa1f09
+PKG_SOURCE_URL:=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10080rc1/$(PKG-SOURCE)
+PKG_MD5SUM:=039162c274a8af102a8b10007991b11e
 
 PKG_BUILD_DEPENDS:=ghostscript/host
 PKG_INSTALL:=1
@@ -75,9 +75,10 @@ define Host/Configure
 	--with-libiconv=no)
 endef
 
-# Only one patch should be applied to the host build
+# Patches should be applied to the host build
 define Host/Patch
 	$(PATCH) -d $(HOST_BUILD_DIR) -p1 < patches/01-ghostscript-10.05.1-force-gnu99.patch
+	$(PATCH) -d $(HOST_BUILD_DIR) -p1 < patches/09-ghostscript-10.08.0-rc1-cast.patch
 endef
 
 # No need to install or patch HOST
